@@ -2,24 +2,26 @@
  *  Run all services 
  *
  */
- 
-
 var async = require('async'),
-    config = require('../config.json');
+    config = require('../config.js');
 
 
-function run(data) {
+function process(data) {
     
-    try {
-        require('./' + data.id).run(data);
-    } catch (e) {
-        console.warn('Service ' + data.id + ' does not provide method run');
+    return function(next){
+        
+        try {
+            require('./' + data.id).run(data, next);
+        } catch (e) {
+            next(e, null);
+        }
+        
     }
     
 }
 
-function complete(){ 
-    console.log('all services starts');
+function complete(err, res){ 
+    console.log('all services complete', res);
 }
 
-async.each(config.services, run, complete);
+async.parallel(config.services.map(process), complete);
