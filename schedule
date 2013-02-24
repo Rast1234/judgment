@@ -1,3 +1,3 @@
 SHELL=/bin/bash
-MAILTO=""
-0-59 * * * * ~/backup.sh 2>&1 | mail -s "Backup result for $HOSTNAME" burlak@psu.karelia.ru
+MAILTO="burlak@psu.karelia.ru"
+0-59 * * * * node ~/current/services/runner.js 2>&1 | mail -s "Backup result for $HOSTNAME" burlak@psu.karelia.ru

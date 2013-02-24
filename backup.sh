@@ -1,1 +1,1 @@
-node services/runner.js
+echo "create backups script cone!"

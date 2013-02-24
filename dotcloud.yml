@@ -8,3 +8,11 @@ www:
     
 db:
     type: mongodb
+
+mailer:
+    type: smtp
+    config:
+        smtp_server: smtp.mail.ru
+        smtp_port: 587
+        smtp_username: bil88@mail.ru
+        smtp_password: 
