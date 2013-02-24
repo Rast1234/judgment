@@ -69,7 +69,8 @@ function prepare(data) {
     return JSON.stringify(data);
 }
 
-function run(data, next) {
+
+exports.run = function(data, next) {
     host = data.url;
     
     dm.run(function() {
@@ -92,7 +93,4 @@ function run(data, next) {
         console.error('domain services/spider: ', err);  
     });
     
-}
-
-
-exports.run = dm.bind(run);
+};
