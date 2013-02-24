@@ -1,8 +1,8 @@
 www:
     type: nodejs
-    approot: ../public
+    approot: ./
     processes:
-        app: node client.js
+        app: node public/client.js
     config:
         node_version: v0.8.x
     

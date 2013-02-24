@@ -2,5 +2,5 @@
     "push_branch": null, 
     "application": "decision", 
     "version": "0.9.4", 
-    "push_protocol": "git"
+    "push_protocol": "rsync"
 }
