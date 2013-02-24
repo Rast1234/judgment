@@ -1,18 +1,44 @@
-# README for a newly created project.
 
-There are a couple of things you should do first, before you can use all of Git's power:
+Первый пробный проект
+/* Express quick setup */
+var express = require('express');
+var app = express();
 
-  * Add a remote to this project: in the Cloud9 IDE command line, you can execute the following commands
-    `git remote add [remote name] [remote url (eg. 'git@github.com:/ajaxorg/node_chat')]` [Enter]
-  * Create new files inside your project
-  * Add them to to Git by executing the following command
-    `git add [file1, file2, file3, ...]` [Enter]
-  * Create a commit which can be pushed to the remote you just added
-    `git commit -m 'added new files'` [Enter]
-  * Push the commit the remote
-    `git push [remote name] master` [Enter]
+/* mongodb setup */
+var mongo = require('mongodb');
 
-That's it! If this doesn't work for you, please visit the excellent resources from [Github.com](http://help.github.com) and the [Pro Git](http://http://progit.org/book/) book.
-If you can't find your answers there, feel free to ask us via Twitter (@cloud9ide), [mailing list](groups.google.com/group/cloud9-ide) or IRC (#cloud9ide on freenode).
+var host = process.env['DOTCLOUD_DB_MONGODB_HOST'] || 'localhost';
+var port = process.env['DOTCLOUD_DB_MONGODB_PORT'] ||  27017;
+port = parseInt(port);
+var user = process.env['DOTCLOUD_DB_MONGODB_LOGIN'] || undefined;
+var pass = process.env['DOTCLOUD_DB_MONGODB_PASSWORD'] || undefined;
 
-Happy coding!
+var mongoServer = new mongo.Server(host, port, {});
+var db = new mongo.Db("test", mongoServer, {auto_reconnect:true,w:'majority'});
+
+app.get("/", function(req, res){
+    var html = '<div id="content" data-stack="node" data-appname="' + process.env['DOTCLOUD_PROJECT'] + '">';
+    html += 'Hello World, from Express!';
+    html += '<script type="text/javascript" src="https://helloapp.dotcloud.com/inject.min.js"></script>';
+
+    db.collection("test", function(err, collection){
+        if(err) console.log(err);
+        collection.find(function(err, cursor){
+            if(err) console.log(err);
+            res.send(html);
+        });
+    })
+});
+
+db.open(function(err){
+    if(err) console.log(err);
+
+    if(user && pass) {
+        db.authenticate(user, pass, function(err) {
+            app.listen(8080);
+        });
+    }
+    else {
+        app.listen(8080);
+    }
+});
