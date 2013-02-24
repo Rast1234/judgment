@@ -5,14 +5,12 @@
   "keywords"      : ["Data Mining", "Judisial"],
   "author"        : "Burlak Ilia <burlak.psu.karelia.ru>",
   "main"          : "./lib/crawler.js",
-  "bin"           : {
-      "mystem": "./bin/mystem"
-  },
 
   "scripts" : {
     "start" : "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  
   "dependencies":{
       "express" : "",
       "mongodb" : "",
