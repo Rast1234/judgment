@@ -1,4 +1,3 @@
-
 Первый пробный проект
 /* Express quick setup */
 var express = require('express');
@@ -42,3 +41,4 @@ db.open(function(err){
         app.listen(8080);
     }
 });
+
