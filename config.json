@@ -1,0 +1,11 @@
+{
+
+    "services": [
+        {
+            "id": "spider",
+            "url": "http://ras.arbitr.ru/Ras/Search",
+            "search": {"Page":1,"Count":2,"GroupByCase":false,"DateFrom":"2000-01-01T00:00:00","DateTo":"2030-01-01T23:59:59","Sides":[],"Judges":[],"Cases":[],"Text":"","InstanceType":"-1"}
+        }
+    ]
+
+}
