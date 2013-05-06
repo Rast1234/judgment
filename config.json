@@ -1,0 +1,51 @@
+{
+    "training": {
+        "sets": [
+            {
+                "url": "ras.arbitr.ru",
+                "search": {"Page":1,"Count":100,"GroupByCase":false,"DateFrom":"2000-01-01T00:00:00","DateTo":"2030-01-01T23:59:59", "StatDisputeCategory": "1","InstanceType":"-1"}
+            },
+            {
+                "url": "ras.arbitr.ru",
+                "search": {"Page":1,"Count":100,"GroupByCase":false,"DateFrom":"2000-01-01T00:00:00","DateTo":"2030-01-01T23:59:59", "StatDisputeCategory": "2","InstanceType":"-1"}
+            },
+            {
+                "url": "ras.arbitr.ru",
+                "search": {"Page":1,"Count":100,"GroupByCase":false,"DateFrom":"2000-01-01T00:00:00","DateTo":"2030-01-01T23:59:59", "StatDisputeCategory": "3","InstanceType":"-1"}
+            },
+            {
+                "url": "ras.arbitr.ru",
+                "search": {"Page":1,"Count":100,"GroupByCase":false,"DateFrom":"2000-01-01T00:00:00","DateTo":"2030-01-01T23:59:59", "StatDisputeCategory": "4","InstanceType":"-1"}
+            },
+            {
+                "url": "ras.arbitr.ru",
+                "search": {"Page":1,"Count":100,"GroupByCase":false,"DateFrom":"2000-01-01T00:00:00","DateTo":"2030-01-01T23:59:59", "StatDisputeCategory": "5","InstanceType":"-1"}
+            },
+            {
+                "url": "ras.arbitr.ru",
+                "search": {"Page":1,"Count":100,"GroupByCase":false,"DateFrom":"2000-01-01T00:00:00","DateTo":"2030-01-01T23:59:59", "StatDisputeCategory": "6","InstanceType":"-1"}
+            },
+            {
+                "url": "ras.arbitr.ru",
+                "search": {"Page":1,"Count":100,"GroupByCase":false,"DateFrom":"2000-01-01T00:00:00","DateTo":"2030-01-01T23:59:59", "StatDisputeCategory": "7","InstanceType":"-1"}
+            }
+        ]
+    },
+
+    "db": {
+        "host": "localhost",
+        "port": "27017",
+        "user": "admin",
+        "pwd": "warrior",
+        "name": "judgment"
+    },
+
+    "app": {
+        "port": 3000,
+        "static": "public"
+    },
+
+    "logger": {
+        "path": "logs"
+    }
+}

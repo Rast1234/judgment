@@ -1,23 +1,40 @@
 {
-  "name"          : "DecisionCrawler",
-  "version"       : "0.0.1",
-  "description"   : "Search hidden value in judisial decision",
-  "keywords"      : ["Data Mining", "Judisial"],
-  "author"        : "Burlak Ilia <burlak.psu.karelia.ru>",
-  "main"          : "./lib/crawler.js",
+    "name": "DecisionCrawler",
+    "version": "0.0.1",
+    "description": "Search hidden value in judisial decision",
+    "keywords": ["Data Mining", "Judisial"],
+    "author": "Burlak Ilia <burlak.psu.karelia.ru>",
+    "main": "./lib/crawler.js",
 
-  "scripts" : {
-    "start" : "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  
-  "dependencies":{
-      "express" : "",
-      "mongodb" : "",
-      "nodeunit": "*",
-      "async": "*",
-      "natural": "*",
-      "string": "*"
-  }
-  
+    "scripts": {
+        "start": "node app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+
+    "dependencies": {
+        "express": "",
+        "mongodb": "",
+        "mustache": "*",
+        "nodeunit": "*",
+        "async": "*",
+        "natural": "*",
+        "string": "*",
+        "rustem": "*",
+        "async": "*",
+        "winston": "*"
+    },
+
+    "jam": {
+        "baseUrl": "./public/",
+        "packageDir": "./public/packages/",
+        "dependencies": {
+            "jquery": "1.8.3",
+            "events": "0.0.2",
+            "async": ">0.1.22",
+            "text": "*",
+            "json": "*"
+
+        }
+    }
+
 }

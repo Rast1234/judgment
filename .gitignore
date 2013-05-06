@@ -2,3 +2,7 @@
 /.idea
 *.tmp
 /node_modules
+dbrun.sh
+/db
+/logs
+/public/packages
