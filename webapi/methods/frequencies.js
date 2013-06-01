@@ -1,4 +1,4 @@
-var db = require('../db');
+var db = require('../../db/client');
 
 exports.get = function(config, logger) {
 
@@ -17,4 +17,4 @@ exports.get = function(config, logger) {
         logger.log('info','Route params: ', req.params);
     }
 
-}
+};

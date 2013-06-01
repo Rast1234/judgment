@@ -1,7 +1,7 @@
 var path = require('path'),
     fs = require('fs'),
     winston = require('winston'),
-    config = require('../../config').logger;
+    config = require('../config').logger;
 
 var activated = false;
 
@@ -17,12 +17,12 @@ exports.init = function(name, done) {
                 return;
             }
 
-            init();
+            start();
         });
 
     }
 
-    function init() {
+    function start() {
 
         winston.add(winston.transports.File, { filename: path + '/' + name + '.log' });
 
@@ -40,5 +40,5 @@ exports.init = function(name, done) {
         return;
     }
 
-    init();
+    start();
 };

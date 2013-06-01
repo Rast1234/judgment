@@ -1,10 +1,10 @@
 define(['exports', 'jquery', 'bus', 'async'], function (exports, $, bus, async)  {
 
     function init() {
-        async.parallel($('[data-link]').map(render), complete);
+        async.parallel($('[data-link]').toArray().map(render), complete);
     }
 
-    function render(i, node) {
+    function render(node) {
 
         return function(next) {
             var link = node.getAttribute('data-link'),

@@ -16,12 +16,16 @@
         "mongodb": "",
         "mustache": "*",
         "nodeunit": "*",
+        "cron" : "*",
+        "time" : "*",
         "async": "*",
         "natural": "*",
         "string": "*",
         "rustem": "*",
         "async": "*",
-        "winston": "*"
+        "winston": "*",
+        "connect": "*",
+        "socket.io": "*"
     },
 
     "jam": {

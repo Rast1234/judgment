@@ -1,10 +1,12 @@
-var categories = require('../models/categories');
+var categories = require('../../models/categories'),
+    cros = require('../modules/cros');;
 
 exports.get = function(config, logger) {
 
     return function(req, res) {
 
         function render(err, data) {
+            res.setHeader('Content-Type', 'application/json');
 
             if (err) {
                 logger.log('error', 'Method error: ', err);
@@ -14,11 +16,11 @@ exports.get = function(config, logger) {
 
             var body = JSON.stringify(data);
 
-            res.setHeader('Content-Type', 'application/json');
-            res.setHeader('Content-Length', body.length);
             res.send(body);
 
         }
+
+        res = cros.wrap(res);
 
         categories.list(render)
         logger.log('info','Process route: ', config, req.params);

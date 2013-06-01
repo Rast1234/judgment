@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Judgment: Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://app.divshot.com/css/bootstrap.css">
+    <link rel="stylesheet" href="https://app.divshot.com/themes/google/google-bootstrap.css">
+    <link rel="stylesheet" href="https://app.divshot.com/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://app.divshot.com/js/jquery.min.js"></script>
+    <script src="https://app.divshot.com/js/bootstrap.min.js"></script>
+
+    <script src="./packages/require.config.js?0.0.1"></script>
+    <script type="text/javascript">
+
+        if (typeof console === "undefined"){
+            console={};
+            console.log = function(){
+                return;
+            }
+        }
+
+        var require = {
+            baseUrl: './',
+            packages: jam.packages,
+            paths: {
+                mustache: 'libs/mustache'
+            },
+            shim: jam.shim,
+            waitSeconds: 20,
+            urlArgs : 1
+        };
+    </script>
+    <script src="./libs/require.js?0.0.1"></script>
+    <script>
+        require(['client'], function (client) {
+            client.init();
+        });
+    </script>
+
+</head>
+<body>
+    <script data-link="services/sockets" type="text/javascript/services"></script>
+
+    <div class="container-fluid">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="#">Judgment</a>
+                    <div class="navbar-content">
+                        <ul class="nav"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="span8 offset1">
+                <h4>Результаты анализа</h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Документ
+                            <br>
+                        </th>
+                        <th>Заголовок</th>
+                        <th>Корректность</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a class="b-a-blue" data-link="widgets/document/popup" class="link" href="http://ras.arbitr.ru/Ras/HtmlDocument/7705c49d-5a81-4808-b90f-d935a5699c27">А13-18424/2011</a>
+                            </td>
+                            <td>О признании договоров недействительными
+                                <br>
+                            </td>
+                            <td>95%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="span4">
+                <form data-link="widgets/check/form">
+                    <div class="drag-mask" data-ds-form="select" style="width: 220px; height: 30px;"></div>
+                    <label for="categories">Проверить категорию документа</label><select id="categories" name="category" data-link="widgets/check/categories"></select>
+                    <textarea style="margin: 0px 0px 10px; height: 176px; width: 367px;" class="input-block-level" name="text"></textarea>
+                    <div class="form-actions">
+                        <button type="submit" class="btn pull-right btn-primary btn-small">Проверить</button>
+                    </div>
+                </form>
+            </div>
+            <div class="overlays" style="display: none;">
+                <div data-link="widgets/check/results"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

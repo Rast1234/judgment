@@ -1,10 +1,10 @@
 var domain = require('domain').create(),
     async = require('async'),
     rustem = require('rustem'),
-    config = require('../config').training,
-    db = require('./db'),
-    spider = require('./modules/spider'),
-    classifier = require('./modules/bayes');
+    config = require('../../config').training,
+    db = require('../../db/client'),
+    spider = require('../../modules/spider'),
+    classifier = require('../../modules/bayes');
 
 function load(query) {
 
@@ -32,17 +32,22 @@ function load(query) {
 
 }
 
-db.init(function() {
+exports.run = function(logger) {
+
+    logger.log('info','RUNNS');
+
     var start = new Date();
 
     async.parallel(config.sets.map(load), domain.intercept(function() {
         var diff = new Date() - start;
 
-        console.log('Traning complete: ', diff + 'ms.');
+        logger.log('info', 'Traning complete: ' + diff + 'ms.');
     }));
 
-});
+    domain.on('error', function(err){
+        console.error(err);
+        logger.log('error', {error: err} );
+    });
 
-domain.on('error', function(err){
-    console.error(err);
-});
+};
+

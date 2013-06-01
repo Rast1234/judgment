@@ -1,4 +1,4 @@
-var db = require('../db');
+var db = require('../db/client');
 
 exports.list = function (query, offset, limit, sort, done) {
 
